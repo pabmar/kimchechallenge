@@ -1,22 +1,12 @@
 import React from "react";
-import "./App.css";
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "@apollo/react-hooks";
-
-const client = new ApolloClient({
-  uri: "https://48p1r2roz4.sse.codesandbox.io",
-});
-
+import "./App.css"; 
+import CountrySearchContainer from "./components/countrySearchContainer/CountrySearchContainer";
+import { ApolloProvider } from '@apollo/client';
+import { client } from './client';
+ 
 const App = () => (
   <ApolloProvider client={client}>
-    <div>
-      <h2>
-        My first Apollo app{" "}
-        <span role="img" aria-label="Rocket">
-          🚀
-        </span>
-      </h2>
-    </div>
+    <CountrySearchContainer></CountrySearchContainer>
   </ApolloProvider>
 );
 export default App;
