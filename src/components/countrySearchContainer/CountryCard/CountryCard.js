@@ -10,9 +10,11 @@ import Flags from 'country-flag-icons/react/3x2'
  
 
  
-// 1f1e8
+ 
 const CountryCard = ({country}) =>{
     const Flag = Flags[country.code]
+
+    const link = `https://www.google.com/search?q=${country.name}`
     return <Grid item xs={4}>
               
   <Card >
@@ -33,16 +35,16 @@ const CountryCard = ({country}) =>{
       <Typography variant="body2">
         Capital: {country.capital}
         <br></br>
-        Cod Tel: {country.phone}
+        Phone Code: {country.phone}
         <br></br>
-        Divisa: {country.currency}
+        Currecy: {country.currency}
         <br></br>
         
   
       </Typography>
     </CardContent>
     <CardActions>
-      <Button size="small">Learn More</Button>
+      <Button size="small" href={link} target="_blank">Learn More</Button>
     </CardActions>
   </Card>
         </Grid>

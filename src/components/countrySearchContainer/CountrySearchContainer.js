@@ -9,6 +9,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
 import { ConstructionOutlined } from '@mui/icons-material';
 import CountryCardGroup from './CountryCardGroup/CountryCardGroup';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
  const ALL_COUNTRY  = gql`
  {
@@ -105,8 +108,21 @@ const filterCountries = (filter,list,group) =>{
 const CountrySearchContainer = props => {
     const {data , loading,error} = useQuery(ALL_COUNTRY);
     const [renderCountries,setRenderCountries] = useState([])
- 
+    const [groupByValue, setgroupByValue] = useState('Continents');
+    const [searchCountries,setSearchCountries] = useState('');
+
+
+    const handleChange = (event) => {
+      setgroupByValue(event.target.value);
+
+      const filterList = filterCountries(searchCountries,countrylist,event.target.value)
+      setRenderCountries(filterList)  
+    };
     
+    const searchButton = () =>{
+        const filterList = filterCountries(searchCountries,countrylist,groupByValue)
+        setRenderCountries(filterList)  
+    }
  
     
    
@@ -122,7 +138,8 @@ const CountrySearchContainer = props => {
     
     function onKeyUpValue(event) {
 
-        const filterList = filterCountries(event.target.value,countrylist,'Languages')
+        const filterList = filterCountries(event.target.value,countrylist,groupByValue)
+        setSearchCountries(event.target.value)
         setRenderCountries(filterList)
         
     }
@@ -138,18 +155,35 @@ const CountrySearchContainer = props => {
             onKeyUpValue(event)
         }}
       />
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={searchButton}>
         <SearchIcon />
       </IconButton>
 
+          <h2>Group By</h2>
+      <RadioGroup
+        row
+        aria-labelledby="demo-form-control-label-placement"
+        name="position"
+        defaultValue="top"
+      >
+        <FormControlLabel value="Continents" onChange={handleChange} control={<Radio/> } label="Continents" />
+        <FormControlLabel value="Languages" onChange={handleChange} control={<Radio />} label="Languages" />
+      </RadioGroup>
+      
+
+
         <Grid container spacing={2}>
-         {renderCountries.map(filteredCountry =>(
-        
-         <CountryCardGroup groupCountries={filteredCountry}></CountryCardGroup>
+            {renderCountries.length> 0?(renderCountries.map(filteredCountry =>(
             
-        )
-            
-        )} 
+            <CountryCardGroup groupCountries={filteredCountry}></CountryCardGroup>
+               
+           )
+               
+           )):(
+             
+               <h2> Can't Find any Country, please search Another</h2>
+           )
+         } 
              
         </Grid>
        
