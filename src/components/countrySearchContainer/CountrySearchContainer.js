@@ -1,4 +1,4 @@
-import React, { useEffect,useState} from 'react'
+import React, { useState} from 'react'
 import {useQuery, gql} from '@apollo/client'
 import Box from '@mui/material/Box';
 
@@ -6,12 +6,11 @@ import Grid from '@mui/material/Grid';
 
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';    
-import InputBase from '@mui/material/InputBase';
-import { ConstructionOutlined } from '@mui/icons-material';
 import CountryCardGroup from './CountryCardGroup/CountryCardGroup';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { Paper, TextField } from '@mui/material';
 
  const ALL_COUNTRY  = gql`
  {
@@ -146,30 +145,46 @@ const CountrySearchContainer = props => {
    
     
     return ( <Box sx={{ mt: 2}} >
-
-      <InputBase
-        sx={{ ml: 1, flex: 1 }}
-        placeholder="Search Countries"
-        inputProps={{ 'aria-label': 'Search Countries' }}
-        onKeyUp = {(event) =>{
-            onKeyUpValue(event)
-        }}
-      />
-      <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={searchButton}>
-        <SearchIcon />
-      </IconButton>
-
-          <h2>Group By</h2>
+        <Paper 
+      sx={{ p: '2px 4px',minHeight:'40px'}}>
+        <Grid container spacing={2} centered>
+            <Grid item>
+            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search" onClick={searchButton}>
+                <SearchIcon />
+            </IconButton>
+            <TextField
+             
+                placeholder="Search Countries"
+                variant="standard"
+                inputProps={{ 'aria-label': 'Search Countries','type':'search' }}
+                onKeyUp = {(event) =>{
+                    onKeyUpValue(event)
+                }}
+                
+            />
+            
+            </Grid>
+            <Grid item>
+            
       <RadioGroup
         row
         aria-labelledby="demo-form-control-label-placement"
         name="position"
-        defaultValue="top"
+        defaultValue="Continents"
+        
       >
         <FormControlLabel value="Continents" onChange={handleChange} control={<Radio/> } label="Continents" />
         <FormControlLabel value="Languages" onChange={handleChange} control={<Radio />} label="Languages" />
       </RadioGroup>
+            </Grid>
+
+          
       
+        </Grid>
+      
+
+        </Paper>
+        
 
 
         <Grid container spacing={2}>

@@ -7,8 +7,8 @@ import Container from '@mui/material/Container';
  
 const App = () => (
   <ApolloProvider client={client}>
-    <Container>
-      <CountrySearchContainer></CountrySearchContainer>
+    <Container >
+      <CountrySearchContainer ></CountrySearchContainer>
     </Container>
     
   </ApolloProvider>

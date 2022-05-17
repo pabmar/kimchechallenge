@@ -1,11 +1,7 @@
-import DefaultClient from 'apollo-boost';
-import React, { useEffect,useState} from 'react'
-import Box from '@mui/material/Box';
+import React from 'react'
 import Grid from '@mui/material/Grid';
 import CountryCard from '../CountryCard/CountryCard';
-import { countries } from 'country-flag-icons';
-import { Container } from '@mui/material';
- 
+
 
 
 
