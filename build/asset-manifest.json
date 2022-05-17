@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kimchechallenge/static/css/main.d1b05096.chunk.css",
-    "main.js": "/kimchechallenge/static/js/main.2766f829.chunk.js",
-    "main.js.map": "/kimchechallenge/static/js/main.2766f829.chunk.js.map",
+    "main.js": "/kimchechallenge/static/js/main.23a75680.chunk.js",
+    "main.js.map": "/kimchechallenge/static/js/main.23a75680.chunk.js.map",
     "runtime-main.js": "/kimchechallenge/static/js/runtime-main.a86b64b2.js",
     "runtime-main.js.map": "/kimchechallenge/static/js/runtime-main.a86b64b2.js.map",
     "static/js/2.2ffa6d01.chunk.js": "/kimchechallenge/static/js/2.2ffa6d01.chunk.js",
     "static/js/2.2ffa6d01.chunk.js.map": "/kimchechallenge/static/js/2.2ffa6d01.chunk.js.map",
     "index.html": "/kimchechallenge/index.html",
-    "precache-manifest.49cbd5f82c4e4535a1666dca0df61c83.js": "/kimchechallenge/precache-manifest.49cbd5f82c4e4535a1666dca0df61c83.js",
+    "precache-manifest.f989a2e5305c0f555367ab6d8d4a5c80.js": "/kimchechallenge/precache-manifest.f989a2e5305c0f555367ab6d8d4a5c80.js",
     "service-worker.js": "/kimchechallenge/service-worker.js",
     "static/css/main.d1b05096.chunk.css.map": "/kimchechallenge/static/css/main.d1b05096.chunk.css.map",
     "static/js/2.2ffa6d01.chunk.js.LICENSE.txt": "/kimchechallenge/static/js/2.2ffa6d01.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.a86b64b2.js",
     "static/js/2.2ffa6d01.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.2766f829.chunk.js"
+    "static/js/main.23a75680.chunk.js"
   ]
 }

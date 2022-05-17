@@ -9,7 +9,7 @@ const CountryCardGroup  = ({groupCountries}) => {
  return (
      <Grid container spacing={2}>
         <Grid item xs={12}>
-           <h3>{groupCountries.group}</h3> 
+           <h2>{groupCountries.group}</h2> 
         </Grid>
         {groupCountries.countries.map(countriesDetail =>(
             <CountryCard country={countriesDetail} ></CountryCard>
