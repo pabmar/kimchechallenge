@@ -65,7 +65,7 @@ const filterCountries = (filter,list,group) =>{
         let contList = getContinents(filteredCountryList)
         let contReturn = []
         for (let i = 0; i < contList.length; i++) {
-            const countryContinent = {group:contList[i],countries:filteredCountryList.filter(countriesFiltered =>countriesFiltered.continent.name.includes(contList[i]) )}
+            let countryContinent = {group:contList[i],countries:filteredCountryList.filter(countriesFiltered =>countriesFiltered.continent.name.includes(contList[i]) )}
             contReturn.push(countryContinent);
             
         }
@@ -74,9 +74,29 @@ const filterCountries = (filter,list,group) =>{
     }
     if (group === 'Languages'){
 
-        let LanList = getContinents(filteredCountryList)
-
-        return LanList
+        let lanList = getlanguages(filteredCountryList)
+        let lanReturn = []
+        
+        for (let i = 0; i < lanList.length; i++) {
+            let languagesGroupFilter = []
+            
+           // lanReturn.push(countryLanguages);
+           for (let index = 0; index < filteredCountryList.length; index++) {
+               let detailLanguagesList = filteredCountryList[index].languages
+               for (let ind = 0; ind < detailLanguagesList.length; ind++) {
+                if (detailLanguagesList[ind].name === lanList[i]) {
+                    languagesGroupFilter.push(filteredCountryList[index]);   
+               
+                   
+                   }
+               }
+               
+           }
+            let countryLanguages = {group:lanList[i],countries:languagesGroupFilter}
+            lanReturn.push(countryLanguages)
+        }
+    
+        return lanReturn
 
     }
     return filteredCountryList
@@ -102,7 +122,7 @@ const CountrySearchContainer = props => {
     
     function onKeyUpValue(event) {
 
-        const filterList = filterCountries(event.target.value,countrylist,'Continents')
+        const filterList = filterCountries(event.target.value,countrylist,'Languages')
         setRenderCountries(filterList)
         
     }
@@ -124,8 +144,8 @@ const CountrySearchContainer = props => {
 
         <Grid container spacing={2}>
          {renderCountries.map(filteredCountry =>(
-            
-          <CountryCardGroup groupCountries={filteredCountry}></CountryCardGroup>
+        
+         <CountryCardGroup groupCountries={filteredCountry}></CountryCardGroup>
             
         )
             
