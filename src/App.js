@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 const App = () => (
   <ApolloProvider client={client}>
     <Container >
+      <h1>Country Search</h1>
       <CountrySearchContainer ></CountrySearchContainer>
     </Container>
     
